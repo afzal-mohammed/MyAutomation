@@ -12,13 +12,9 @@ public class NumberEvenOdd {
 
 			System.out.println("Given number is odd " + x);
 		}
-
 	}
 
 	public static void main(String[] args) {
-		NumberEvenOdd ab = new NumberEvenOdd();
-
 		display(7);
 	}
-
 }
