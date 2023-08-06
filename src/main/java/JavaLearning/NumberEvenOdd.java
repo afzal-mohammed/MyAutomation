@@ -15,6 +15,6 @@ public class NumberEvenOdd {
 	}
 
 	public static void main(String[] args) {
-		display(8);
+		display(13);
 	}
 }
