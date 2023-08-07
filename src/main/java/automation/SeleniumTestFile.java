@@ -1,7 +1,5 @@
 package automation;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SeleniumTestFile {
