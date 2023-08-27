@@ -5,14 +5,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class SeleniumTestFile {
 
 	public static void main(String[] args) throws InterruptedException {
-
 		System.setProperty("webdriver.chrome.driver",
-				"D:\\Users\\abc\\git\\MyAutomation\\src\\main\\resources\\drivers\\chromedriver.exe");
+				"src\\main\\resources\\drivers\\chromedriver.exe");
+//		System.setProperty("webdriver.http.factory", "jdk-http-client");
 		ChromeDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("https://www.facebook.com/");
-		Thread.sleep(3000);
-		driver.quit();
+		try {
+			driver.manage().window().maximize();
+			driver.get("https://www.facebook.com/");
+			System.out.println("Browser has been launched");
+			Thread.sleep(3000);
+		}catch(Exception e) {
+			//TO:DO
+		}finally {
+			driver.quit();
+		}
 
 	}
 
