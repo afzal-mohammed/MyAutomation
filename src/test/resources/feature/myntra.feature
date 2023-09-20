@@ -25,3 +25,14 @@ Scenario: Verify that user is navigated to mens page
  Given user launches myntra site
  When user clicks on kids option
  Then kids page should be displayed
+ 
+ Scenario: Verify that user is navgated to home & living page
+ Given user launches myntra site
+ When user clicks on home & living option
+ Then home & living page should be displayed
+ 
+ Scenario: Verify that user is navigated to beauty page
+ Given user launches myntra site
+ When user clicks on beauty option
+ Then beauty page should be displayed
+ 

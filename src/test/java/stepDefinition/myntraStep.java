@@ -2,6 +2,8 @@ package stepDefinition;
 
 import static org.junit.Assert.assertTrue;
 
+import java.text.spi.DecimalFormatSymbolsProvider;
+
 import org.hamcrest.core.StringContains;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -103,6 +105,40 @@ public class myntraStep {
 	public void kids_page_should_be_displayed() {
 		String title = driver.getTitle();
 		assertTrue(title.contains("Kids"));
+		driver.quit();
+
+	}
+
+	@When("user clicks on home & living option")
+	public void user_clicks_on_home_living_option() {
+
+		WebElement homeAndLivingMenu = driver.findElement(By.linkText("Home & Living"));
+		homeAndLivingMenu.click();
+
+	}
+
+	@Then("home & living page should be displayed")
+	public void home_living_page_should_be_displayed() {
+
+		String title = driver.getTitle();
+		assertTrue(title.contains("Living"));
+		driver.quit();
+
+	}
+
+	@When("user clicks on beauty option")
+	public void user_clicks_on_beauty_option() {
+
+		WebElement beautyMenu = driver.findElement(By.linkText("Beauty"));
+		beautyMenu.click();
+
+	}
+
+	@Then("beauty page should be displayed")
+	public void beauty_page_should_be_displayed() {
+
+		String title = driver.getTitle();
+		assertTrue(title.contains("Personal"));
 		driver.quit();
 
 	}
