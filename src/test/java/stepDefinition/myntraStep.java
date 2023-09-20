@@ -62,7 +62,7 @@ public class myntraStep {
 	}
 
 	@Then("user should be navigated to wishlist page")
-	public void user_should_be_navigated_to_wishlist_page() throws InterruptedException {
+	public void user_should_be_navigated_to_wishlist_page() {
 
 		String title = driver.getTitle();
 		assertTrue(title.contains("Wishlist"));
@@ -90,6 +90,21 @@ public class myntraStep {
 		String title = driver.getTitle();
 		assertTrue(title.contains("Watches"));
 		driver.quit();
+	}
+
+	@When("user clicks on kids option")
+	public void user_clicks_on_kids_option() {
+		WebElement kidsOption = driver.findElement(By.linkText("Kids"));
+		kidsOption.click();
+
+	}
+
+	@Then("kids page should be displayed")
+	public void kids_page_should_be_displayed() {
+		String title = driver.getTitle();
+		assertTrue(title.contains("Kids"));
+		driver.quit();
+
 	}
 
 }
