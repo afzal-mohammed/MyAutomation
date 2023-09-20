@@ -1,8 +1,9 @@
 package stepDefinition;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.hamcrest.core.StringContains;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,6 +22,7 @@ public class myntraStep {
 		System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\drivers\\chromedriver.exe");
 		System.setProperty("webdriver.http.factory", "jdk-http-client");
 		driver = new ChromeDriver();
+		driver.manage().window().maximize();
 		driver.get("https://myntra.com");
 	}
 
@@ -51,4 +53,43 @@ public class myntraStep {
 		driver.quit();
 
 	}
+
+	@When("user clicks on wishlist option")
+	public void user_clicks_on_wishlist_option() {
+		WebElement wishListOption = driver
+				.findElement(By.xpath("//*[@id=\"desktop-header-cnt\"]/div[2]/div[2]/a[1]/span[1]"));
+		wishListOption.click();
+	}
+
+	@Then("user should be navigated to wishlist page")
+	public void user_should_be_navigated_to_wishlist_page() throws InterruptedException {
+
+		String title = driver.getTitle();
+		assertTrue(title.contains("Wishlist"));
+		driver.quit();
+
+	}
+
+	@When("user enters watches in search bar")
+	public void user_enters_watches_in_search_bar() {
+		WebElement searchBar = driver.findElement(By.className("desktop-searchBar"));
+		searchBar.sendKeys("watches");
+
+	}
+
+	@When("user clicks on search button")
+	public void user_clicks_on_search_button() {
+		WebElement clickSearch = driver.findElement(By.xpath("//*[@id=\"desktop-header-cnt\"]/div[2]/div[3]/a/span"));
+		clickSearch.click();
+
+	}
+
+	@Then("watches page should be displayed")
+	public void watches_page_should_be_displayed() {
+
+		String title = driver.getTitle();
+		assertTrue(title.contains("Watches"));
+		driver.quit();
+	}
+
 }
