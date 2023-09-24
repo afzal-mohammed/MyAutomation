@@ -33,11 +33,25 @@ public class myntraStep {
 		WebElement womenOption = driver.findElement(By.linkText("Women"));
 		womenOption.click();
 	}
-
+	
+	@When("clicks on {string} menu")
+	public void clickOption(String option) throws InterruptedException {
+		WebElement optionElement = driver.findElement(By.linkText(option));
+		optionElement.click();
+		Thread.sleep(5000);
+	}
+	
 	@Then("user should be navigated to womens page")
 	public void user_should_be_navigated_to_womens_page() {
 		String title = driver.getTitle();
 		assertTrue(title.contains("Women"));
+		driver.quit();
+	}
+	
+	@Then("I should be navigated to {string} page")
+	public void i_should_be_navigated_to_page(String expectedTitle) {
+		String title = driver.getTitle();
+		assertTrue(title.contains(expectedTitle));
 		driver.quit();
 	}
 
