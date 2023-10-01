@@ -5,15 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LearnFileUploadPage {
+public class LearnFileUploadPage extends CommonPage{
 	WebDriver driver;
-	
 	public LearnFileUploadPage() {
-		System.out.println("Inside constructor");
-		System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\drivers\\chromedriver.exe");
-		System.setProperty("webdriver.http.factory", "jdk-http-client");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
+		super(true);
+		driver = CommonPage.driver;
 	}
 	
 	public void launchURL() throws InterruptedException {

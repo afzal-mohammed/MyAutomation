@@ -48,6 +48,11 @@ public class myntraStep {
 		driver.quit();
 	}
 	
+	@When("all user should be navigated to womens page")
+	public void myTestMethod() {
+		//TODO
+	}
+	
 	@Then("I should be navigated to {string} page")
 	public void i_should_be_navigated_to_page(String expectedTitle) {
 		String title = driver.getTitle();

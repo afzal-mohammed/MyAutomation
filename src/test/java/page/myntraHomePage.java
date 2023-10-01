@@ -1,5 +1,6 @@
 package page;
 
-public class myntraHomePage {
+public class myntraHomePage extends CommonPage {
+
 
 }
